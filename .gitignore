@@ -32,6 +32,7 @@ node_modules
 /scripts
 /src/environment.js
 /src/environment.ts
-/dist
+# We want this repository to work as a submodule
+# /dist
 /test/coverage-jest
 /test/coverage-karma
