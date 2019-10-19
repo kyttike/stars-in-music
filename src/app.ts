@@ -8,11 +8,18 @@ export class App {
     config.title = 'Aurelia';
     config.map([
       {
-        route: ['', 'welcome'],
+        route: ['welcome'],
         name: 'welcome',
         moduleId: PLATFORM.moduleName('./welcome'),
         nav: true,
         title: 'Welcome'
+      },
+      {
+        route: ['', 'game'],
+        name: 'game',
+        moduleId: PLATFORM.moduleName('./game-scene'),
+        nav: true,
+        title: 'Game'
       },
       {
         route: 'users',

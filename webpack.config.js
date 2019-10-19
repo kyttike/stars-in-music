@@ -20,7 +20,7 @@ const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
-const githubBaseUrl = '/stars-in-music/'
+const githubBaseUrl = '/stars-in-music/';
 
 const cssRules = [
   { loader: 'css-loader' },
