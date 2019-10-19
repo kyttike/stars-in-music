@@ -19,7 +19,8 @@ const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const baseUrl = '/stars-in-music/';
+const baseUrl = '/';
+const githubBaseUrl = '/stars-in-music/'
 
 const cssRules = [
   { loader: 'css-loader' },
@@ -55,7 +56,7 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
   mode: production ? 'production' : 'development',
   output: {
     path: outDir,
-    publicPath: baseUrl,
+    publicPath: production ? githubBaseUrl : baseUrl,
     filename: production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
     sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
     chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js'
@@ -193,7 +194,8 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
       template: 'index.ejs',
       metadata: {
         // available in index.ejs //
-        title, baseUrl
+        title,
+        baseUrl: production ? githubBaseUrl : baseUrl,
       }
     }),
     // ref: https://webpack.js.org/plugins/mini-css-extract-plugin/
