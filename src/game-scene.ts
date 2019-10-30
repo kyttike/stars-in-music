@@ -5,10 +5,10 @@ import {GameSong, SongRepository} from "./services/SongRepository";
 export class GameScene {
   lyrics: LyricButton[];
 
-  constructor(private songs: SongRepository) {}
+  constructor(private songService: SongRepository) {}
 
   activate(params) {
-    this.loadGame(this.songs.getSong(params.id));
+    this.loadGame(this.songService.getSong(params.id));
   }
 
   loadGame(song: GameSong): void {
