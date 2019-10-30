@@ -10,5 +10,7 @@
 }
 
 .gamebutton {
-  min-height: 25vh;
+  @media (min-width: $breakpoint-tablet) {
+    min-height: 25vh;
+  }
 }
