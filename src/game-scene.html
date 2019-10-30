@@ -1,7 +1,7 @@
 <template>
   <div class="star-background container-fluid d-flex align-items-end justify-content-center">
-    <div class="row bg-dark p-3 mb-5 w-100">
-      <button class="col-md mx-2 mb-0 ${lyric.styleClass} h1" click.delegate="lyric.onClick()" repeat.for="lyric of lyrics">
+    <div class="row bg-dark p-3 mb-3 w-100">
+      <button class="col-md mx-2 mb-0 gamebutton ${lyric.styleClass}" click.delegate="lyric.onClick()" repeat.for="lyric of lyrics">
         ${lyric.isRevealed ? lyric.lyric : $index + 1}
       </button>
     </div>

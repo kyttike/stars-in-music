@@ -1,1 +1,14 @@
 @import "base";
+
+.unopened {
+  font-weight: 700;
+  font-size: 120px;
+}
+
+.opened {
+  font-size: 60px;
+}
+
+.gamebutton {
+  min-height: 25vh;
+}

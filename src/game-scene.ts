@@ -34,6 +34,14 @@ export class LyricButton {
 
   @computedFrom('isSafe', 'isRevealed')
   get styleClass(): string {
-    return this.isRevealed && !this.isSafe ? 'btn-dark' : 'btn-primary';
+    const result = [];
+    if (this.isRevealed) {
+      result.push('opened');
+      result.push(this.isSafe ? 'btn-primary' : 'btn-dark');
+    } else {
+      result.push('unopened');
+      result.push('btn-primary');
+    }
+    return result.join(' ');
   }
 }
