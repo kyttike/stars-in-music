@@ -1,22 +1,21 @@
-import { computedFrom } from "aurelia-framework";
+import { computedFrom, inject } from "aurelia-framework";
+import {GameSong, SongRepository} from "./services/SongRepository";
 
+@inject(SongRepository)
 export class GameScene {
-  lyrics: LyricButton[] = [
-    new LyricButton('hello'),
-    new LyricButton('from'),
-    new LyricButton('the'),
-    new LyricButton('other'),
-    new LyricButton('side,'),
-    new LyricButton('I'),
-  ];
+  lyrics: LyricButton[];
 
-  constructor() {
-    const randomizedList = this.lyrics.slice(0).sort(() => 0.5 - Math.random());
-    randomizedList[0].isSafe = false;
-    randomizedList[1].isSafe = false;
+  constructor(private songs: SongRepository) {}
+
+  activate(params) {
+    this.loadGame(this.songs.getSong(params.id));
   }
 
-
+  loadGame(song: GameSong): void {
+    this.lyrics = song.lyrics.map((lyric, index) => {
+      return new LyricButton(lyric, !song.types[index])
+    })
+  }
 }
 
 export class LyricButton {
@@ -24,8 +23,9 @@ export class LyricButton {
   isSafe = true;
   lyric: string;
 
-  constructor(lyric: string) {
+  constructor(lyric: string, isSafe: boolean) {
     this.lyric = lyric;
+    this.isSafe = isSafe;
   }
 
   onClick() {
