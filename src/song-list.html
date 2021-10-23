@@ -1,5 +1,11 @@
 <template>
   <div class="container mt-3 mt-sm-5 pt-md-3 pt-lg-5">
     <a class="btn btn-outline-primary mb-2 d-block" href="#/game/${song.id}" repeat.for="song of songList">${song.title}</a>
+
+    <input type="text" value.bind="encodedSongs"/>
+    <button click.delegate="importantButton()" class="btn btn-outline-secondary">
+      Nupp
+    </button>
+
   </div>
 </template>
